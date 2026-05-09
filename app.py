@@ -108,10 +108,10 @@ END:VCARD"""
             pos = ((img.size[0] - logo.size[0]) // 2, (img.size[1] - logo.size[1]) // 2)
             img.paste(logo, pos, logo)
         
-    buf = io.BytesIO()
-    img.save(buf, format='PNG')
-    buf.seek(0)  # Fix corrupted download
-    img_b64 = base64.b64encode(buf.getvalue()).decode()
+   buf = io.BytesIO()
+   img.save(buf, format='PNG')
+   buf.seek(0)  # Fix corrupted download
+   img_b64 = base64.b64encode(buf.getvalue()).decode()
       
     
     return render_template_string(HTML, img=img_b64)
